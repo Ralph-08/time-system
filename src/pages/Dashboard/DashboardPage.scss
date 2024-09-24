@@ -37,6 +37,15 @@
   }
 }
 
+@keyframes animate-message {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .dashboard {
   &__header {
     margin: 1.3rem 1rem 1rem;
@@ -50,6 +59,16 @@
   &__subheader {
     padding: 0 1rem;
     margin-top: 2rem;
+  }
+
+  &__message {
+    width: 100%;
+    margin-top: 1rem;
+    // margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    color: darkgreen;
+    animation: animate-message 1.5s 3s;
   }
 }
 

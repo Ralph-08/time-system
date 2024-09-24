@@ -1,0 +1,19 @@
+@use "../partials/_variables.scss" as *;
+
+@mixin mobile {
+  @media only screen and (min-width: $mobile-breakpoint) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}

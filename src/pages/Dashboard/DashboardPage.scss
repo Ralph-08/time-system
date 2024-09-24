@@ -1,0 +1,117 @@
+@use "../../styles/partials/_variables.scss" as *;
+@use "../../styles/partials/_mixins.scss" as *;
+
+@keyframes pulse {
+  0% {
+    scale: 100%;
+    box-shadow: 0 0 10px $coral;
+  }
+  50% {
+    scale: 105%;
+    box-shadow: 0 0 20px $coral;
+  }
+  100% {
+    scale: 100%;
+    box-shadow: 0 0 10px $coral;
+  }
+}
+
+@keyframes border-spin {
+  from {
+    rotate: -360deg;
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+
+@keyframes clock-in-glow {
+  0% {
+    box-shadow: 0 0 0 $green;
+  }
+  50% {
+    box-shadow: 0 0 1.5rem $green;
+  }
+  100% {
+    box-shadow: 0 0 1rem $green;
+  }
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+
+  &__display {
+    border-bottom: 1px solid lightgray;
+    width: 80%;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    max-width: $tablet-breakpoint;
+  }
+
+  &__btn {
+    border-style: none;
+    background-color: coral;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    animation: pulse 3s infinite;
+    cursor: pointer;
+
+    &--active {
+      border-style: none;
+      background-color: $green;
+      width: 15rem;
+      height: 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20rem;
+      font-weight: bold;
+      font-size: 1.3rem;
+      padding: 0 3rem;
+      animation: clock-in-glow 1s;
+      border: 1px solid lightgreen;
+      box-shadow: 0 0 1rem $green;
+    }
+  }
+}
+
+.loading-clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+
+  &__main {
+    border-style: none;
+    background-color: lightgray;
+    width: 15rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  &__border {
+    border-style: none;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 20rem;
+    border: 5px solid $blue;
+    border-right: 5px solid white;
+    position: absolute;
+    animation: border-spin 0.8s infinite linear;
+  }
+}

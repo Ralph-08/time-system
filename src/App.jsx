@@ -26,7 +26,9 @@ const firestore = firebase.firestore();
 
 function App() {
   const [user] = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
+
+  // console.log(firestore.collection("times").where({ employee: 1 }));
 
   return (
     <BrowserRouter>

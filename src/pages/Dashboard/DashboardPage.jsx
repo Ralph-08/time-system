@@ -3,26 +3,47 @@ import "./DashboardPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import employeeInfo from "../../data/employee.json";
 import { useNavigate } from "react-router-dom";
+import { use } from "react";
+import axios from "axios";
 
 function DashboardPage({ user }) {
   const [isClockedIn, setIsClockedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [employee, setEmployee] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  const [time, setTime] = useState(false);
   const navigate = useNavigate();
+
+  const getTime = async () => {
+    try {
+      const data = await axios.get(
+        "https://timeapi.io/api/time/current/zone?timeZone=America%2FLos_Angeles"
+      );
+      setTime(data.data.time);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // getTime();
 
   const getEmplyeeInfo = async () => {
     try {
       const data = await employeeInfo;
       setEmployee(data[0]);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   useEffect(() => {
     if (!user) navigate("/sign-in");
     getEmplyeeInfo();
+
+    // *****DELETE!!!******
+    getTime();
+    // *****DELETE!!!******
+
   }, []);
 
   const handleClockIn = () => {
@@ -33,6 +54,8 @@ function DashboardPage({ user }) {
       setIsClockedIn(true);
     }, 3000);
   };
+
+  if (time) console.log(time)
 
   const handleClockOut = () => {
     console.log("Create function to clock out here---");
@@ -62,7 +85,7 @@ function DashboardPage({ user }) {
         )}
 
         {showMessage && (
-          <h1 className="dashboard__message">{`Clocked out at ${new Date().toLocaleTimeString()}`}</h1>
+          <h1 className="dashboard__message">{`Clocked out at ${time}`}</h1>
         )}
 
         {!isLoading ? (
@@ -73,7 +96,7 @@ function DashboardPage({ user }) {
             >
               {!isClockedIn
                 ? "Clock In"
-                : `Clocked in at ${new Date().toLocaleTimeString()}`}
+                : `Clocked in at ${time}`}
             </button>
           </section>
         ) : (

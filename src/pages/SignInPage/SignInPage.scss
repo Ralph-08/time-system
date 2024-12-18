@@ -1,0 +1,40 @@
+@use "../../styles/partials/_variables.scss" as *;
+@use "../../styles/partials/_mixins.scss" as *;
+
+.signIn {
+  padding: 0 1rem;
+}
+
+.signIn-card {
+  padding: 2rem;
+  width: 100%;
+  height: 25rem;
+  margin: 6rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 1rem lightgray;
+  @include mobile {
+    width: 20rem;
+  }
+
+  &__icon {
+    width: 6rem;
+  }
+
+  &__button {
+    border-style: none;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    background-color: #4280ef;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #396fcc;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "firstName": "Rafael",
+    "lastName": "Ramos",
+    "times": [
+      {
+        "day": "monday",
+        "clockIn": "6:57:37 AM",
+        "clockOut": "4:12:19 PM"
+      },
+      {
+        "day": "tuesday",
+        "clockIn": "7:01:37 AM",
+        "clockOut": "4:12:19 PM"
+      },
+      {
+        "day": "wednesday",
+        "clockIn": "6:40:38 AM",
+        "clockOut": "4:12:19 PM"
+      },
+      {
+        "day": "thursday",
+        "clockIn": "6:57:37 AM",
+        "clockOut": "4:12:19 PM"
+      },
+      {
+        "day": "friday",
+        "clockIn": "6:57:37 AM",
+        "clockOut": "4:12:19 PM"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "firstName": "John",
+    "lastName": "Doe"
+  }
+]

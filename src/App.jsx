@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DashboardPage from "./pages/Dashboard/DashboardPage";
 import MyHours from "./pages/MyHours/MyHours";
 import "./styles/partials/_globals.scss";
@@ -8,7 +8,7 @@ import "firebase/compat/firestore";
 import "firebase/compat/auth";
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
+// import { useCollectionData } from "react-firebase-hooks/firestore";
 import SignInPage from "./pages/SignInPage/SignInPage";
 
 firebase.initializeApp({
@@ -22,7 +22,7 @@ firebase.initializeApp({
 });
 
 const auth = firebase.auth();
-const firestore = firebase.firestore();
+// const firestore = firebase.firestore();
 
 function App() {
   const [user] = useAuthState(auth);

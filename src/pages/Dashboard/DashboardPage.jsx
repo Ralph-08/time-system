@@ -3,7 +3,6 @@ import "./DashboardPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import employeeInfo from "../../data/employee.json";
 import { useNavigate } from "react-router-dom";
-import { use } from "react";
 import axios from "axios";
 
 function DashboardPage({ user }) {
